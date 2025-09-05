@@ -1,0 +1,80 @@
+/* General styles */
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: linear-gradient(to right, #1e3c72, #2a5298);
+  color: #fff;
+  line-height: 1.6;
+}
+
+/* Header */
+header {
+  background: rgba(0, 0, 0, 0.4);
+  padding: 3rem 0;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 2.8rem;
+  margin-bottom: 0.5rem;
+}
+
+header p {
+  font-size: 1.2rem;
+}
+
+.highlight {
+  color: #ffdd57;
+  font-weight: bold;
+}
+
+/* Sections */
+.container {
+  width: 80%;
+  max-width: 900px;
+  margin: auto;
+  padding: 2rem 0;
+}
+
+section h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ffdd57;
+  display: inline-block;
+  padding-bottom: 0.3rem;
+}
+
+/* Tools grid */
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: 1rem;
+  margin-top: 1.5rem;
+}
+
+.tool {
+  background: #fff;
+  color: #2a5298;
+  padding: 1rem;
+  border-radius: 10px;
+  text-align: center;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+  transition: transform 0.3s ease, background 0.3s ease;
+}
+
+.tool:hover {
+  background: #ffdd57;
+  color: #1e3c72;
+  transform: scale(1.05);
+  cursor: pointer;
+}
+
+/* Footer */
+footer {
+  background: rgba(0, 0, 0, 0.6);
+  text-align: center;
+  padding: 1rem;
+  margin-top: 2rem;
+  font-size: 0.9rem;
+}
