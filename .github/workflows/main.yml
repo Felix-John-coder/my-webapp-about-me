@@ -9,7 +9,7 @@ on:
   workflow_dispatch:
     
 permissions:
-  id-token: write  
+  #id-token: write  
   contents: read
 
 jobs:
@@ -34,6 +34,7 @@ jobs:
         - name: Configure AWS credentials (OIDC)
           uses: aws-actions/configure-aws-credentials@v2
           with:
-            role-to-assume: arn:aws:iam::862479276433:role/github-aws-credential  # <- replace with your role ARN
+            role-to-assume: arn:aws:iam::862479276433:role/github-aws-credential 
             aws-region: eu-north-1
-            
+        - name: deploying repo to s3 serverless hosting
+          run: aws s3 cp ./ s3://my-webapp-aws-felix --recursive
