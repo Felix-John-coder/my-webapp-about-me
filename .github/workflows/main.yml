@@ -17,14 +17,7 @@ jobs:
       steps:
         - name: take a copy of my src code
           uses: actions/checkout@v4
-        - name: aws access credentials
-          uses: aws-actions/configure-aws-credentials@v5
-          with:
-            aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
-            aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-            aws-region: eu-north-1
-        - name: deploying repo to s3 serverless hosting
-          run: aws s3 cp ./ s3://my-webapp-aws-felix --recursive
+        
         - name: update README
           run: |
             echo "The s3 serverless hosting was updated at time: $(date -u)" > update.txt
@@ -36,3 +29,11 @@ jobs:
             git add README.md
             git commit -m "automated update at $(date)" || echo "no new update"
             git push
+        - name: aws access credentials
+          uses: aws-actions/configure-aws-credentials@v5
+          with:
+            aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
+            aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+            aws-region: eu-north-1
+        - name: deploying repo to s3 serverless hosting
+          run: aws s3 cp ./ s3://my-webapp-aws-felix --recursive
