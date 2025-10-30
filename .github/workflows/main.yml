@@ -18,7 +18,7 @@ jobs:
         - name: take a copy of my src code
           uses: actions/checkout@v4
         - name: aws access credentials
-          uses: aws-actions/configure-aws-credentails@v5
+          uses: aws-actions/configure-aws-credentials@v5
           with:
             aws-access-key-id: ${{secrets.AWS_ACCESS_KEY_ID}}
             aws-secret-access-key: ${{secrets.AWS_SECRET_ACCESS_KEY}}
