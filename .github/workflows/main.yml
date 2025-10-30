@@ -27,8 +27,8 @@ jobs:
           run: aws s3 cp ./ s3://my-webapp-aws-felix --recursive
         - name: update README
           run: |
-            rm -r README.md || echo "nothing to update"
-            cat "The s3 serverless hosting was updated at time: $(date -u)" >> README.md
+            echo "The s3 serverless hosting was updated at time: $(date -u)" > update.txt
+            cat update.txt >> README.md
         - name: github access to README.md
           run: |
             git config --global user.name "github-actions[bot]"
