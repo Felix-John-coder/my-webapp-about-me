@@ -19,18 +19,6 @@ jobs:
         - name: take a copy of my src code
           uses: actions/checkout@v4
         
-        - name: update README
-          run: |
-            echo "The s3 serverless hosting was updated at time: $(date -u)" > update.txt
-            cat update.txt >> README.md
-        - name: github access to README.md
-          run: |
-            git config --global user.name "github-actions[bot]"
-            git config --global user.email "github-actions[bot]@users.noreply.github.com"
-            git add README.md
-            git commit -m "automated update at $(date)" || echo "no new update"
-            git push
-        
         - name: Configure AWS credentials (OIDC)
           uses: aws-actions/configure-aws-credentials@v2
           with:
